@@ -48,7 +48,7 @@ commands:
     args:
       - name: image
         help: Name the images to be built into a container
-        allowed: [" ", all, backend, frontend]
+        allowed: [" ", all, backend, frontend, nginx]
         required: false
 
     examples:
@@ -65,7 +65,7 @@ commands:
     args:
       - name: container
         help: Name the containers to be stopped and erased
-        allowed: [" ", all, backend, frontend]
+        allowed: [" ", all, backend, frontend, nginx]
         required: false
 
     examples:
@@ -79,7 +79,7 @@ commands:
     args:
       - name: container
         help: Display logs from containers
-        allowed: [" ", all, backend, frontend]
+        allowed: [" ", all, backend, frontend, nginx]
         required: false
 
     examples:
