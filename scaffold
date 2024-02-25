@@ -227,7 +227,7 @@ scaffold_build_usage() {
     # :argument.usage
     printf "  %s\n" "IMAGE"
     printf "    Name the images to be built into a container\n"
-    printf "    Allowed:  , all, backend, frontend\n"
+    printf "    Allowed:  , all, backend, frontend, nginx\n"
     echo
 
     # :command.usage_examples
@@ -301,7 +301,7 @@ scaffold_down_usage() {
     # :argument.usage
     printf "  %s\n" "CONTAINER"
     printf "    Name the containers to be stopped and erased\n"
-    printf "    Allowed:  , all, backend, frontend\n"
+    printf "    Allowed:  , all, backend, frontend, nginx\n"
     echo
 
     # :command.usage_examples
@@ -346,7 +346,7 @@ scaffold_logs_usage() {
     # :argument.usage
     printf "  %s\n" "CONTAINER"
     printf "    Display logs from containers\n"
-    printf "    Allowed:  , all, backend, frontend\n"
+    printf "    Allowed:  , all, backend, frontend, nginx\n"
     echo
 
     # :command.usage_examples
@@ -1078,8 +1078,8 @@ scaffold_build_parse_requirements() {
   done
 
   # :command.whitelist_filter
-  if [[ -n ${args['image']:-} ]] && [[ ! ${args['image']:-} =~ ^( |all|backend|frontend)$ ]]; then
-    printf "%s\n" "image must be one of:  , all, backend, frontend" >&2
+  if [[ -n ${args['image']:-} ]] && [[ ! ${args['image']:-} =~ ^( |all|backend|frontend|nginx)$ ]]; then
+    printf "%s\n" "image must be one of:  , all, backend, frontend, nginx" >&2
     exit 1
   fi
 
@@ -1177,8 +1177,8 @@ scaffold_down_parse_requirements() {
   done
 
   # :command.whitelist_filter
-  if [[ -n ${args['container']:-} ]] && [[ ! ${args['container']:-} =~ ^( |all|backend|frontend)$ ]]; then
-    printf "%s\n" "container must be one of:  , all, backend, frontend" >&2
+  if [[ -n ${args['container']:-} ]] && [[ ! ${args['container']:-} =~ ^( |all|backend|frontend|nginx)$ ]]; then
+    printf "%s\n" "container must be one of:  , all, backend, frontend, nginx" >&2
     exit 1
   fi
 
@@ -1232,8 +1232,8 @@ scaffold_logs_parse_requirements() {
   done
 
   # :command.whitelist_filter
-  if [[ -n ${args['container']:-} ]] && [[ ! ${args['container']:-} =~ ^( |all|backend|frontend)$ ]]; then
-    printf "%s\n" "container must be one of:  , all, backend, frontend" >&2
+  if [[ -n ${args['container']:-} ]] && [[ ! ${args['container']:-} =~ ^( |all|backend|frontend|nginx)$ ]]; then
+    printf "%s\n" "container must be one of:  , all, backend, frontend, nginx" >&2
     exit 1
   fi
 
