@@ -1,0 +1,103 @@
+name: scaffold
+help: A homebrewed solution for containerized environment software development.
+version: 0.1.0
+
+commands:
+  - name: artisan
+    help: Run Artisan commands
+
+    args:
+      - name: command
+        required: false
+        help: Input an Artisan command to be executed
+
+    examples:
+      - artisan list
+      - artisan migrate
+      - artisan make:controller
+
+  - name: composer
+    help: Run Composer commands
+
+    args:
+      - name: command
+        required: false
+        help: Input a Composer command to be executed
+
+    examples:
+      - composer help
+      - composer install
+      - composer dump-autoload
+
+  - name: npm
+    help: Run NPM commands
+
+    args:
+      - name: command
+        required: false
+        help: Input a NPM command to be executed
+
+    examples:
+      - npm help
+      - npm build
+      - npm install
+
+  - name: build
+    help: Build containers from images
+
+    args:
+      - name: image
+        help: Name the images to be built into a container
+        allowed: [" ", all, backend, frontend]
+        required: false
+
+    examples:
+      - build
+      - build backend
+      - build frontend
+
+  - name: destroy
+    help: Erase the containerized environment completely
+
+  - name: down
+    help: Stop and erase containers
+
+    args:
+      - name: container
+        help: Name the containers to be stopped and erased
+        allowed: [" ", all, backend, frontend]
+        required: false
+
+    examples:
+      - down
+      - down backend
+      - down frontend
+
+  - name: logs
+    help: Display container logs
+
+    args:
+      - name: container
+        help: Display logs from containers
+        allowed: [" ", all, backend, frontend]
+        required: false
+
+    examples:
+      - logs
+      - logs backend
+      - logs frontend
+
+  - name: start
+    help: Start all containers
+
+  - name: stop
+    help: Stop all containers
+
+  - name: restart
+    help: Restart all containers
+
+  - name: init
+    help: Initialise containerized environment and the application
+
+  - name: update
+    help: Update the container environment
